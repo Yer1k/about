@@ -1,176 +1,145 @@
-import * as React from "react"
+import React from 'react';
+import styled from 'styled-components';
+import tw from 'tailwind.macro';
+import { Parallax } from 'react-spring/addons.cjs';
 
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
+// Components
+import Layout from '../components/Layout';
+import ProjectCard from '../components/ProjectCard';
 
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
+// Elements
+import Inner from '../elements/Inner';
+import { Title, BigTitle, Subtitle } from '../elements/Titles';
 
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
-}
+// Views
+import Hero from '../views/Hero';
+import Projects from '../views/Projects';
+import About from '../views/About';
+import Contact from '../views/Contact';
 
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
+import avatar from '../images/avatar.jpg';
 
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
-}
+const ProjectsWrapper = styled.div`
+  ${tw`flex flex-wrap justify-between mt-8`};
+  display: grid;
+  grid-gap: 4rem;
+  grid-template-columns: repeat(2, 1fr);
+  @media (max-width: 1200px) {
+    grid-gap: 3rem;
+  }
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+  }
+`;
 
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
+const AboutHero = styled.div`
+  ${tw`flex flex-col lg:flex-row items-center mt-8`};
+`;
 
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/getting-started/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
-  },
-]
+const Avatar = styled.img`
+  ${tw`rounded-full w-32 xl:w-48 shadow-lg h-auto`};
+`;
 
-const IndexPage = () => {
-  return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! 🎉🎉🎉</span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time. 😎
-      </p>
-      <ul style={listStyles}>
-        <li style={docLinkStyle}>
-          <a
-            style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
+const AboutSub = styled.span`
+  ${tw`text-white pt-12 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
+`;
+
+const AboutDesc = styled.p`
+  ${tw`text-grey-light text-lg md:text-xl lg:text-2xl font-sans pt-6 md:pt-12 text-justify`};
+`;
+
+const ContactText = styled.p`
+  ${tw`text-grey-light font-sans text-xl md:text-2xl lg:text-3xl`};
+`;
+
+const Footer = styled.footer`
+  ${tw`text-center text-grey absolute pin-b p-6 font-sans text-md lg:text-lg`};
+`;
+
+const Index = () => (
+  <>
+    <Layout />
+    <Parallax pages={5}>
+      <Hero>
+        <BigTitle>
+          Hello, <br /> I'm Dingkun.
+        </BigTitle>
+        <Subtitle>
+          Data scientist, soccer referee, founder, content creator, runner and
+          photographer.
+        </Subtitle>
+      </Hero>
+      <Projects>
+        <Title>Projects</Title>
+        <ProjectsWrapper>
+          <ProjectCard
+            title="Running Page"
+            link="https://github.com/Yer1k/running_page"
+            bg="linear-gradient(to right, #D4145A 0%, #FBB03B 100%)"
           >
-            {docLink.text}
+            Running page to tracking my running data
+          </ProjectCard>
+          <ProjectCard
+            title="Emotion-Conditioned Music Generation with Transformer GANs"
+            link="https://github.com/Yer1k/music_gen_gan"
+            bg="linear-gradient(to right, #662D8C 0%, #ED1E79 100%)"
+          >
+            Generate music conditioned on emotion using GANs
+          </ProjectCard>
+          <ProjectCard
+            title="EHR Data Analysis Tools"
+            link="https://github.com/geekplux/d3-experiment"
+            bg="linear-gradient(to right, #009245 0%, #FCEE21 100%)"
+          >
+            Tools for EHR data analysis
+          </ProjectCard>
+          <ProjectCard
+            title="More"
+            link="https://github.com/Yer1k?tab=repositories"
+            bg="linear-gradient(to right, #D585FF 0%, #00FFEE 100%)"
+          >
+            More open source projects in my GitHub.
+          </ProjectCard>
+        </ProjectsWrapper>
+      </Projects>
+      <About>
+        <Title>About</Title>
+        <AboutHero>
+          <Avatar src={avatar} alt="Yer1k" />
+          <AboutSub>
+            Full-time Learner, good at data visualization and data science,
+            creating some fun and useful tools or tiny projects to please
+            myself.
+          </AboutSub>
+        </AboutHero>
+        <AboutDesc>
+          I’m a data scientist with more than five years working
+          experience. Now I focus on the Cloud Computing and Data Visualization on
+          big data. What I'm interested in are connecting the dots of what I
+          have learned through my life journey, and I'm always looking for
+          opportunities to learn and grow.
+        </AboutDesc>
+      </About>
+      <Contact>
+        <Inner>
+          <Title>Get in touch</Title>
+          <ContactText>
+            Say <a href="mailto:yer1k@outlook.com">Hi</a> or find me on other
+            platforms: <a href="https://github.com/yer1k">GitHub</a> &{' '}
+            <a href="https://www.instagram.com/yer1k">Instagram</a>
+          </ContactText>
+        </Inner>
+        <Footer>
+          &copy; 2024 by Gatsby Starter Portfolio Cara.{' '}
+          <a href="https://github.com/LekoArts/gatsby-starter-portfolio-cara">
+            Github Repository
           </a>
-        </li>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-              >
-                {link.text}
-              </a>
-              {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
-                  NEW!
-                </span>
-              )}
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
-      />
-    </main>
-  )
-}
+          . Made by <a href="https://www.lekoarts.de">LekoArts</a>.
+        </Footer>
+      </Contact>
+    </Parallax>
+  </>
+);
 
-export default IndexPage
-
-export const Head = () => <title>Home Page</title>
+export default Index;
