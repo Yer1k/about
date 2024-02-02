@@ -89,7 +89,7 @@ const Index = () => (
           </ProjectCard>
           <ProjectCard
             title="EHR Data Analysis Tools"
-            link="https://github.com/geekplux/d3-experiment"
+            link="https://github.com/Yer1k/EHR_Utils"
             bg="linear-gradient(to right, #009245 0%, #FCEE21 100%)"
           >
             Tools for EHR data analysis
