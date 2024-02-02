@@ -4,9 +4,9 @@
 module.exports = {
   siteMetadata: {
     title: `about me`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://about.yer1k.com`
   },
-  plugins: ["gatsby-plugin-google-gtag", "gatsby-plugin-image", "gatsby-plugin-sitemap", "gatsby-plugin-mdx", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
+  plugins: ["gatsby-plugin-image", "gatsby-plugin-sitemap", "gatsby-plugin-mdx", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "images",
@@ -20,5 +20,13 @@ module.exports = {
       "path": "./src/pages/"
     },
     __key: "pages"
+  }, {
+    resolve: `gatsby-plugin-google-gtag`,
+    options: {
+      trackingIds: ['G-98K4NW8SH3'],
+      pluginConfig: {
+        head: true
+      }
+    }
   }]
 };
