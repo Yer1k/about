@@ -12,7 +12,7 @@
     "dev": "gatsby develop -o",
     "develop": "gatsby develop",
     "start": "gatsby develop",
-    "build": "gatsby build && gh-pages -d public",
+    "build": "gatsby build --prefix-paths && gh-pages -d public",
     "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore",
     "lint:fix": "eslint . --ext .js,.jsx --fix --ignore-path .gitignore",
     "lint:ci": "yarn lint --format junit -o results/eslint/result.xml",
