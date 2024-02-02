@@ -125,15 +125,15 @@ const Index = () => (
         <Inner>
           <Title>Get in touch</Title>
           <ContactText>
-            Say <a href="mailto:about@yer1k.com">Hi</a>, and find me on <a herf=
-            "yer1k.com">my personal website</a> or other
+            Say <a href="mailto:about@yer1k.com">Hi</a>, and find me on my <a href=
+            "yer1k.com"> personal website</a> or other
             platforms: <a href="https://github.com/yer1k">GitHub</a>,{' '}
             <a href="https://www.instagram.com/yer1k">Instagram</a> &{' '}
             <a href="https://running.yer1k.com">Running Page</a>
           </ContactText>
         </Inner>
         <Footer>
-          &copy; 2024 by 
+          &copy; 2024 by {' '}
           <a href="https://yer1k.com">
             Yer1k
           </a>
