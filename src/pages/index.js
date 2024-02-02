@@ -133,11 +133,11 @@ const Index = () => (
           </ContactText>
         </Inner>
         <Footer>
-          &copy; 2024 by Gatsby Starter Portfolio Cara.{' '}
-          <a href="https://github.com/LekoArts/gatsby-starter-portfolio-cara">
-            Github Repository
+          &copy; 2024 by 
+          <a href="https://yer1k.com">
+            Yer1k
           </a>
-          . Made by <a href="https://www.lekoarts.de">LekoArts</a>.
+          .
         </Footer>
       </Contact>
     </Parallax>
