@@ -66,7 +66,7 @@ const Index = () => (
           Hello, <br /> I'm Dingkun.
         </BigTitle>
         <Subtitle>
-          Data scientist, soccer referee, founder, content creator, runner and
+          Data scientist, soccer referee, founder, content creator, runner, and
           photographer.
         </Subtitle>
       </Hero>
@@ -114,9 +114,9 @@ const Index = () => (
           </AboutSub>
         </AboutHero>
         <AboutDesc>
-          I’m a data scientist with more than five years working
-          experience. Now I focus on the Cloud Computing and Data Visualization on
-          big data. What I'm interested in are connecting the dots of what I
+          I’m a data scientist with more than five years of working
+          experience. Now I focus on Cloud Computing and Data Visualization on
+          big data. What I'm interested in is connecting the dots of what I
           have learned through my life journey, and I'm always looking for
           opportunities to learn and grow.
         </AboutDesc>
